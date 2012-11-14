@@ -5,10 +5,7 @@ PBCore Element Set (plugin for Omeka)
 Summary
 -------
 
-This plugin creates an element set for the PBCore standard.
-
-Creates element set for PBCore , a
- * standard for digitalized documents (see http://pbcore.org).
+This plugin creates an element set and an output format for the PBCore standard.
 
 [PBCore][1] means "Public Broadcasting Metadata Dictionary". It's an xml format
 dedicated to digital public broadcasting and built on Dublin Core.
@@ -22,7 +19,7 @@ For more information on Omeka, see [Omeka][2].
 Installation
 ------------
 
-Uncompress files and rename plugin folder "PBCore-Element-Set".
+Uncompress files and rename plugin folder "PBCoreElementSet".
 
 Then install it like any other Omeka plugin. The plugin has no configuration.
 
@@ -68,7 +65,7 @@ Contact
 
 Current maintainers:
 
-* [Anne Wootton][5])
+* [Anne Wootton][5]
 * [Daniel Berthereau][6]
 
 First version of this plugin has been built for [Pop Up Archive][7].
