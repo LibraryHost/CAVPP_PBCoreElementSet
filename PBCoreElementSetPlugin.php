@@ -22,6 +22,8 @@ class PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
         'uninstall',
         'admin_append_to_plugin_uninstall_message',
         'public_theme_header',
+        // BeamMeUpToInternetArchive hook used to get list of metadata.
+        'beamia_set_settings',
     );
 
     /**
@@ -67,12 +69,61 @@ class PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
             . '</p>';
     }
 
+    // TODO To check.
     public function hookPublicThemeHeader()
     {
         $request = Zend_Controller_Front::getInstance()->getRequest();
         if ($request->getControllerName() == 'items' && $request->getActionName() == 'show') {
-            echo '<link rel="alternate" type="application/rss+xml" href="' . item_uri() . '?output=pbcore" id="pbcore"/>' . "\n";
+            echo '<link rel="alternate" type="application/rss+xml" href="' . record_url(get_current_record('item')) . '?output=pbcore" id="pbcore"/>' . "\n";
         }
+    }
+
+    /**
+     * BeamMeUpToInternetArchive hook used to get list of metadata.
+     *
+     * Note that default Dublin Core metadata are removed.
+     */
+    public function hookBeamiaSetSettings($args)
+    {
+        // Don't use Dublin Core metadata that are created by default.
+        $settings = array();
+        $record = $args['record'];
+        $elementSetName = 'PBCore';
+
+        // Add existing elements.
+        $options = array(
+            'show_empty_elements' => false,
+            'return_type' => 'array',
+        );
+        if ($elementSetName) {
+            $options['show_element_sets'] = $elementSetName;
+        }
+        $metadata = all_element_texts($record, $options);
+
+        // Don't add "Dublin Core" in the header, because this is the standard
+        // on Internet Archive.
+        $cleanElementSetName = ($elementSetName == 'Dublin Core') ?
+            '' :
+            preg_replace('#[^a-z0-9]+#', '-', strtolower($elementSetName)) . '-';
+
+        foreach ($metadata[$elementSetName] as $element => $texts) {
+            // Replace unique or serie of non-alphanumeric character by "-".
+            $meta = preg_replace('#[^a-z0-9]+#', '-', strtolower($element));
+            foreach ($texts as $key => $text) {
+                $base = (count($texts) == 1) ?
+                    'x-archive-meta-' :
+                    'x-archive-meta' . sprintf('%02d', $key) . '-';
+                $settings[] = $base . $cleanElementSetName . $meta . ':' . $text;
+            }
+
+            // Add default title if it exists. If none, a generic name will be
+            // added automatically.
+            if ($element == 'Title') {
+                $settings[] = 'x-archive-meta-title:' . $texts[0];
+            }
+        }
+
+        $args['settings'] = $settings;
     }
 
     public function filterAdminItemsFormTabs($tabs, $item)
