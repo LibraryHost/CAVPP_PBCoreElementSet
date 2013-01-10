@@ -21,6 +21,9 @@ class PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
         'install',
         'uninstall',
         'admin_append_to_plugin_uninstall_message',
+        'config_form',
+        'config',
+        'after_save_item',
         'public_theme_header',
         // BeamMeUpToInternetArchive hook used to get list of metadata.
         'beamia_set_settings',
@@ -36,10 +39,19 @@ class PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
     );
 
     /**
+     * @var array This plugin's options.
+     */
+    protected $_options = array(
+        'pbcore_element_set_add_url_as_identifier' => false,
+    );
+
+    /**
      * Install the plugin.
      */
     public function hookInstall()
     {
+        $this->_installOptions();
+
         // Load elements to add.
         require_once('elements.php');
 
@@ -57,6 +69,8 @@ class PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
     public function hookUninstall()
     {
         $this->_deleteElementSet($this->_elementSetName);
+
+        $this->_uninstallOptions();
     }
 
     /**
@@ -69,12 +83,67 @@ class PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
             . '</p>';
     }
 
+    /**
+     * Displays configuration form.
+     *
+     * @return void
+     */
+    public function hookConfigForm()
+    {
+        include('config_form.php');
+    }
+
+    /**
+     * Saves plugin configuration.
+     *
+     * @return void
+     */
+    public function hookConfig($args)
+    {
+        $post = $args['post'];
+
+        set_option('pbcore_element_set_add_url_as_identifier', $post['PBCoreElementSetAddUrlAsIdentifier']);
+    }
+
+    /**
+     * The recommended pbcore identifier is to use the omeka url with current
+     * id, so we need to update the item once it is saved for the first time
+     * (insert). An option is added to disable this feature.
+     */
+    public function hookAfterSaveItem($args)
+    {
+        $post = $args['post'];
+        $item = $args['record'];
+
+        // Add the default identifier if wished.
+        if ($args['insert'] && (boolean) get_option('pbcore_element_set_add_url_as_identifier')) {
+            //// We use direct sql to avoid some problems with this update, in
+            //// particular when there are attached files.
+            // $elementTexts = array($this->_elementSetName => array('Identifier' => array(array(
+            //     'text' => WEB_ROOT . '/items/show/' . $item->id,
+            //     'html' => false,
+            // ))));
+            // update_item($item, array(), $elementTexts);
+            $element = $this->_db->getTable('Element')->findByElementSetNameAndElementName('PBCore', 'Identifier');
+            $sql = "
+                INSERT INTO {$this->_db->ElementText} (record_id, record_type, element_id, html, text)
+                VALUES ('{$item->id}', 'Item', '{$element->id}', '0', '" . WEB_ROOT . '/items/show/' . $item->id . "')
+            ";
+            $this->_db->query($sql);
+        }
+        // Update or remove (see status).
+        else {
+            // Nothing, because the user should be able to remove or update the
+            // default identifier manually.
+        }
+    }
+
     // TODO To check.
     public function hookPublicThemeHeader()
     {
         $request = Zend_Controller_Front::getInstance()->getRequest();
         if ($request->getControllerName() == 'items' && $request->getActionName() == 'show') {
-            echo '<link rel="alternate" type="application/rss+xml" href="' . record_url(get_current_record('item')) . '?output=pbcore" id="pbcore"/>' . "\n";
+            echo '<link rel="alternate" type="application/rss+xml" href="' . record_url(get_current_record('item')) . '?output=pbcore" id="pbcore"/>' . PHP_EOL;
         }
     }
 
@@ -88,7 +157,7 @@ class PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
         // Don't use Dublin Core metadata that are created by default.
         $settings = array();
         $record = $args['record'];
-        $elementSetName = 'PBCore';
+        $elementSetName = $this->_elementSetName;
 
         // Add existing elements.
         $options = array(
@@ -98,7 +167,7 @@ class PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
         if ($elementSetName) {
             $options['show_element_sets'] = $elementSetName;
         }
-        $metadata = all_element_texts($record, $options);
+        $elementTexts = all_element_texts($record, $options);
 
         // Don't add "Dublin Core" in the header, because this is the standard
         // on Internet Archive.
@@ -106,7 +175,7 @@ class PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
             '' :
             preg_replace('#[^a-z0-9]+#', '-', strtolower($elementSetName)) . '-';
 
-        foreach ($metadata[$elementSetName] as $element => $texts) {
+        foreach ($elementTexts[$elementSetName] as $element => $texts) {
             // Replace unique or serie of non-alphanumeric character by "-".
             $meta = preg_replace('#[^a-z0-9]+#', '-', strtolower($element));
             foreach ($texts as $key => $text) {
