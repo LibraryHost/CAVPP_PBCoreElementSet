@@ -117,19 +117,28 @@ class PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
 
         // Add the default identifier if wished.
         if ($args['insert'] && (boolean) get_option('pbcore_element_set_add_url_as_identifier')) {
-            //// We use direct sql to avoid some problems with this update, in
-            //// particular when there are attached files.
-            // $elementTexts = array($this->_elementSetName => array('Identifier' => array(array(
-            //     'text' => WEB_ROOT . '/items/show/' . $item->id,
-            //     'html' => false,
-            // ))));
-            // update_item($item, array(), $elementTexts);
-            $element = $this->_db->getTable('Element')->findByElementSetNameAndElementName('PBCore', 'Identifier');
-            $sql = "
-                INSERT INTO {$this->_db->ElementText} (record_id, record_type, element_id, html, text)
-                VALUES ('{$item->id}', 'Item', '{$element->id}', '0', '" . WEB_ROOT . '/items/show/' . $item->id . "')
-            ";
-            $this->_db->query($sql);
+            $text = WEB_ROOT . '/items/show/' . $item->id;
+
+            // Check if this url already exists as an identifier.
+            $elementTexts = metadata($item, array('PBCore', 'Identifier'), array('all' => true, 'no_escape', 'no_filter'));
+            if (!in_array($text, $elementTexts)) {
+                //// We use direct sql to avoid some problems with this update, in
+                //// particular when there are attached files.
+                // $elementTexts = array($this->_elementSetName => array('Identifier' => array(array(
+                //     'text' => $text,
+                //     'html' => false,
+                // ))));
+                // update_item($item, array(), $elementTexts);
+                static $elementId;
+                if (!$elementId) {
+                    $elementId = $this->_db->getTable('Element')->findByElementSetNameAndElementName('PBCore', 'Identifier')->id;
+                }
+                $sql = "
+                    INSERT INTO {$this->_db->ElementText} (record_id, record_type, element_id, html, text)
+                    VALUES ('{$item->id}', 'Item', '{$elementId}', '0', '$text')
+                ";
+                $this->_db->query($sql);
+            }
         }
         // Update or remove (see status).
         else {
