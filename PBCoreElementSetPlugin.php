@@ -5,7 +5,7 @@
  * Creates element set for PBCore (Public Broadcasting Metadata Dictionary), a
  * standard for digitalized documents (see http://pbcore.org).
  *
- * @copyright Pop Up Archive, 2012
+ * @copyright Daniel Berthereau for Pop Up Archive, 2012-2013
  * @license http://www.gnu.org/licenses/gpl-3.0.txt
  * @package PBCore-Element-Set
  **/
