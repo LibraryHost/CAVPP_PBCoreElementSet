@@ -1,7 +1,11 @@
 <?php echo '<?xml version="1.0" encoding="UTF-8"?>
-<pbcoreDescriptionDocument xsi:schemaLocation="http://www.PBCore.org/PBCore/PBCoreNamespace.html http://pbcore.org/xsd/pbcore-2.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html">
+<pbcoreCollection xsi:schemaLocation="http://www.PBCore.org/PBCore/PBCoreNamespace.html http://pbcore.org/xsd/pbcore-2.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html">
 '; ?>
+
+<?php while(loop_items()): ?>
+
 <?php $item = get_current_item(); ?>
+<pbcoreDescriptionDocument>
 <?php foreach (item('PBCore', 'Date Broadcast', array('all'=>true)) as $datebroadcast) { ?>
 	<pbcoreAssetDate dateType="Broadcast"><?php echo html_escape($datebroadcast); ?></pbcoreAssetDate>
 <?php } ?>
@@ -106,3 +110,6 @@
 	<pbcoreAnnotation annotationType="DatePeg"><?php echo html_escape($date_peg); ?></pbcoreAnnotation>
 	<?php } ?>
 	</pbcoreDescriptionDocument>
+
+<?php endwhile; ?>
+</pbcoreCollection>
