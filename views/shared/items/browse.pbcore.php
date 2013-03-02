@@ -89,6 +89,10 @@
 		<?php if (count(metadata($item, array('PBCore', 'Digital Format'), array('all' => true)))) { ?>
 		<instantiationDigital><?php echo metadata($item, array('PBCore', 'Digital Format')); ?></instantiationDigital>
 		<?php } ?>
+		<?php set_loop_records('files', $item->Files);
+        foreach (loop('files') as $file) { ?>
+		<instantiationDigital><?php echo $file->mime_browser; ?></instantiationDigital>  
+		<? php } ?>     
 		<?php if (count(metadata($item, array('PBCore', 'Duration'), array('all' => true)))) { ?>
 		<instantiationDuration><?php echo metadata($item, array('PBCore', 'Duration')); ?></instantiationDuration>
 		<?php } ?>
@@ -102,7 +106,6 @@
 		<instantiationLocation><?php echo metadata($item, array('PBCore', 'Digital Location')); ?></instantiationLocation>
 		<?php } ?>	     
 		 <instantiationDate dateType="Date Modified"><?php echo $file->modified; ?></instantiationDate>
-            <instantiationDigital><?php echo $file->mime_browser; ?></instantiationDigital>       
 		<instantiationFileSize unitsOfMeasure="bytes"><?php echo $file->size; ?></instantiationFileSize>
             <instantiationAnnotation annotationType="md5"><?php echo $file->authentication; ?></instantiationAnnotation>
         </instantiationPart>
