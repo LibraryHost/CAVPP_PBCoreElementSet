@@ -86,13 +86,10 @@
 		<?php if (count(metadata($item, array('PBCore', 'Digital Location'), array('all' => true)))) { ?>
 		<instantiationLocation><?php echo metadata($item, array('PBCore', 'Digital Location')); ?></instantiationLocation>
 		<?php } ?>		
-		<?php if (count(metadata($item, array('PBCore', 'Digital Format'), array('all' => true)))) { ?>
-		<instantiationDigital><?php echo metadata($item, array('PBCore', 'Digital Format')); ?></instantiationDigital>
-		<?php } ?>
 		<?php set_loop_records('files', $item->Files);
         foreach (loop('files') as $file) { ?>
 		<instantiationDigital><?php echo $file->mime_browser; ?></instantiationDigital>  
-		<? php } ?>     
+		<?php } ?>     
 		<?php if (count(metadata($item, array('PBCore', 'Duration'), array('all' => true)))) { ?>
 		<instantiationDuration><?php echo metadata($item, array('PBCore', 'Duration')); ?></instantiationDuration>
 		<?php } ?>
