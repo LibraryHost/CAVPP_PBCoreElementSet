@@ -107,6 +107,9 @@ foreach (loop('files') as $file) { ?>
 <?php if (count(metadata($item, array('PBCore', 'Digital Location'), array('all' => true)))) { ?>
 				<instantiationLocation><?php echo metadata($item, array('PBCore', 'Digital Location')); ?></instantiationLocation>
 <?php } ?>
+<?php if (count(metadata($item, array('PBCore', 'Digital Location'), array('all' => true))) == 0 ) { ?>
+			<instantiationLocation>No Location Available</instantiationLocation>
+<?php } ?>
 				<instantiationFileSize unitsOfMeasure="bytes"><?php echo $file->size; ?></instantiationFileSize>
 				<instantiationAnnotation annotationType="md5"><?php echo $file->authentication; ?></instantiationAnnotation>
 			</instantiationPart>
