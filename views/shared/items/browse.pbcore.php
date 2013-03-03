@@ -44,10 +44,10 @@
 			<pbcoreRelationType>Is Part Of</pbcoreRelationType>
 			<pbcoreRelationIdentifier source="<?php echo "Omeka:" ; echo  html_escape(get_option('site_title')); ?>"><?php echo metadata('item', 'collection name'); ?></pbcoreRelationIdentifier>
 		</pbcoreRelation>
-		<pbcoreCoverage>
+		<?php /*		<pbcoreCoverage>
 			<coverage><?php if (function_exists('geolocation_get_location_for_item') && geolocation_get_location_for_item($item, true)) { $location = geolocation_get_location_for_item($item, true); echo html_escape($location->address); } ?></coverage>
 			<coverageType>Spatial</coverageType>
-		</pbcoreCoverage>
+		</pbcoreCoverage> */ ?>
 <?php foreach (metadata($item, array('PBCore', 'Creator'), array('all'=>true)) as $creator) { ?>
 		<pbcoreCreator>
 			<creator><?php echo html_escape($creator); ?></creator>
