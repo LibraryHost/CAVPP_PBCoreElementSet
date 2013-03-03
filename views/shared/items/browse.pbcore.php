@@ -100,7 +100,7 @@
 <?php set_loop_records('files', $item->Files);
 foreach (loop('files') as $file) { ?>
 			<instantiationPart>
-				<instantiationIdentifier><?php echo html_escape($file->getWebPath('original')); ?></instantiationIdentifier>
+				<instantiationIdentifier source="<?php echo "URL"?>"><?php echo html_escape($file->getWebPath('original')); ?></instantiationIdentifier>
 				<instantiationIdentifier source="<?php echo "Omeka:" ; echo  html_escape(get_option('site_title')); echo ".original_filename"?>"><?php echo html_escape($file->original_filename); ?></instantiationIdentifier>
 				<instantiationIdentifier source="<?php echo "Omeka:" ; echo  html_escape(get_option('site_title')); echo ".filename"?>"><?php echo $file->filename; ?></instantiationIdentifier>
 <?php if (count(metadata($item, array('PBCore', 'Digital Location'), array('all' => true)))) { ?>
