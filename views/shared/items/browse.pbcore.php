@@ -81,9 +81,6 @@
 <?php foreach (metadata($item, array('PBCore', 'Identifier'), array('all'=>true)) as $identifier) { ?>
 			<instantiationIdentifier source="Omeka"><?php echo html_escape($identifier); ?></instantiationIdentifier>
 <?php } ?>
-<?php foreach (metadata($item, array('PBCore', 'Digital Location'), array('all'=>true)) as $diglocation) { ?>
-			<instantiationIdentifier><?php echo html_escape($diglocation); ?></instantiationIdentifier>
-<?php } ?>
 			<instantiationIdentifier source="<?php echo "Omeka:" ; echo  html_escape(get_option('site_title')); echo ".item_id"?>"><?php echo $item->id; ?></instantiationIdentifier>
 <?php if (count(metadata($item, array('PBCore', 'Digital Format'), array('all' => true)))) { ?>
 			<instantiationDigital><?php echo metadata($item, array('PBCore', 'Digital Format')); ?></instantiationDigital>
