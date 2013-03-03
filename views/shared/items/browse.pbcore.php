@@ -13,6 +13,9 @@
 <?php foreach (metadata($item, array('PBCore', 'Identifier'), array('all'=>true)) as $identifier) { ?>
 		<pbcoreIdentifier source="Omeka"><?php echo html_escape($identifier); ?></pbcoreIdentifier>
 <?php } ?>
+<?php if (empty($identifier)) { ?>
+		<pbcoreIdentifier source="None">No Identifier Available</pbcoreIdentifier>
+<?php } ?>
 <?php foreach (metadata($item, array('PBCore', 'Title'), array('all'=>true)) as $title) { ?>
 		<pbcoreTitle><?php echo html_escape($title); ?></pbcoreTitle>
 <?php } ?>
