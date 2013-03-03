@@ -1,5 +1,4 @@
 <?php echo '<?xml version="1.0" encoding="UTF-8"?>
-
 <pbcoreCollection xsi:schemaLocation="http://www.PBCore.org/PBCore/PBCoreNamespace.html http://pbcore.org/xsd/pbcore-2.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.pbcore.org/PBCore/PBCoreNamespace.html">
 '; ?>
 <?php foreach(loop('items') as $item): ?>
