@@ -88,6 +88,9 @@
 <?php if (count(metadata($item, array('PBCore', 'Digital Location'), array('all' => true)))) { ?>
 			<instantiationLocation><?php echo metadata($item, array('PBCore', 'Digital Location')); ?></instantiationLocation>
 <?php } ?>
+<?php if (count(metadata($item, array('PBCore', 'Digital Location'), array('all' => true))) == 0 ) { ?>
+			<instantiationLocation>No Location Available</instantiationLocation>
+<?php } ?>
 <?php if (count(metadata($item, array('PBCore', 'Digital Format'), array('all' => true)))) { ?>
 			<instantiationDigital><?php echo metadata($item, array('PBCore', 'Digital Format')); ?></instantiationDigital>
 <?php } ?>
