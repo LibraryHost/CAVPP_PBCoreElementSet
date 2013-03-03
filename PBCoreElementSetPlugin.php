@@ -5,7 +5,7 @@
  * Creates element set for PBCore (Public Broadcasting Metadata Dictionary), a
  * standard for digitalized documents (see http://pbcore.org).
  *
- * @copyright Daniel Berthereau for Pop Up Archive, 2012-2013
+ * @copyright Pop Up Archive, 2012
  * @license http://www.gnu.org/licenses/gpl-3.0.txt
  * @package PBCore-Element-Set
  **/
@@ -154,6 +154,9 @@ class PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
         if ($request->getControllerName() == 'items' && $request->getActionName() == 'show') {
             echo '<link rel="alternate" type="application/rss+xml" href="' . record_url(get_current_record('item')) . '?output=pbcore" id="pbcore"/>' . PHP_EOL;
         }
+        if ($request->getControllerName() == 'items' && $request->getActionName() == 'browse') {
+            echo '<link rel="alternate" type="application/rss+xml" href="' . record_url(get_current_record('item')) . '?output=pbcore" id="pbcore"/>' . PHP_EOL;
+        }
     }
 
     /**
@@ -225,6 +228,7 @@ class PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
     {
         if ($controller['controller'] instanceof ItemsController) {
             $contexts['show'][] = 'pbcore';
+            $contexts['browse'][] = 'pbcore';
         }
 
         return $contexts;
