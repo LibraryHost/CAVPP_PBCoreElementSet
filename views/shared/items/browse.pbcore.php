@@ -84,15 +84,15 @@
 <?php foreach (metadata($item, array('PBCore', 'Digital Location'), array('all'=>true)) as $diglocation) { ?>
 			<instantiationIdentifier><?php echo html_escape($diglocation); ?></instantiationIdentifier>
 <?php } ?>
-			<instantiationIdentifier source="<?php echo "Omeka:" ; echo  html_escape(get_option('site_title')); echo ".item_id"?>"><?php echo $item->id; ?></instantiationIdentifier>		
+			<instantiationIdentifier source="<?php echo "Omeka:" ; echo  html_escape(get_option('site_title')); echo ".item_id"?>"><?php echo $item->id; ?></instantiationIdentifier>
+<?php if (count(metadata($item, array('PBCore', 'Digital Format'), array('all' => true)))) { ?>
+			<instantiationDigital><?php echo metadata($item, array('PBCore', 'Digital Format')); ?></instantiationDigital>
+<?php } ?>
 <?php if (count(metadata($item, array('PBCore', 'Digital Location'), array('all' => true)))) { ?>
 			<instantiationLocation><?php echo metadata($item, array('PBCore', 'Digital Location')); ?></instantiationLocation>
 <?php } ?>
 <?php if (count(metadata($item, array('PBCore', 'Digital Location'), array('all' => true))) == 0 ) { ?>
 			<instantiationLocation>No Location Available</instantiationLocation>
-<?php } ?>
-<?php if (count(metadata($item, array('PBCore', 'Digital Format'), array('all' => true)))) { ?>
-			<instantiationDigital><?php echo metadata($item, array('PBCore', 'Digital Format')); ?></instantiationDigital>
 <?php } ?>
 <?php if (count(metadata($item, array('PBCore', 'Duration'), array('all' => true)))) { ?>
 			<instantiationDuration><?php echo metadata($item, array('PBCore', 'Duration')); ?></instantiationDuration>
@@ -103,10 +103,10 @@ foreach (loop('files') as $file) { ?>
 				<instantiationIdentifier source="<?php echo "URL"?>"><?php echo html_escape($file->getWebPath('original')); ?></instantiationIdentifier>
 				<instantiationIdentifier source="<?php echo "Omeka:" ; echo  html_escape(get_option('site_title')); echo ".original_filename"?>"><?php echo html_escape($file->original_filename); ?></instantiationIdentifier>
 				<instantiationIdentifier source="<?php echo "Omeka:" ; echo  html_escape(get_option('site_title')); echo ".filename"?>"><?php echo $file->filename; ?></instantiationIdentifier>
+				<instantiationDate dateType="Date Modified"><?php echo $file->modified; ?></instantiationDate>
 <?php if (count(metadata($item, array('PBCore', 'Digital Location'), array('all' => true)))) { ?>
 				<instantiationLocation><?php echo metadata($item, array('PBCore', 'Digital Location')); ?></instantiationLocation>
 <?php } ?>
-				<instantiationDate dateType="Date Modified"><?php echo $file->modified; ?></instantiationDate>
 				<instantiationFileSize unitsOfMeasure="bytes"><?php echo $file->size; ?></instantiationFileSize>
 				<instantiationAnnotation annotationType="md5"><?php echo $file->authentication; ?></instantiationAnnotation>
 			</instantiationPart>
