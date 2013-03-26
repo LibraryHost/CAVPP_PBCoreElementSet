@@ -33,7 +33,6 @@ class PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
      * @var array Filters for the plugin.
      */
     protected $_filters = array(
-        'admin_items_form_tabs',
         'response_contexts',
         'action_contexts',
     );
@@ -205,13 +204,6 @@ class PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
         }
 
         $args['settings'] = $settings;
-    }
-
-    public function filterAdminItemsFormTabs($tabs, $item)
-    {
-        unset($tabs['Dublin Core']);
-        unset($tabs['Item Type Metadata']);
-        return $tabs;
     }
 
     public function filterResponseContexts($contexts)
