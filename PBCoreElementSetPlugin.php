@@ -7,9 +7,12 @@
  *
  * @copyright Pop Up Archive, 2012
  * @license http://www.gnu.org/licenses/gpl-3.0.txt
- * @package PBCore-Element-Set
- **/
+ */
 
+/**
+ * The PBCore Element Set plugin.
+ * @package Omeka\Plugins\PBCoreElementSet
+ */
 class PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
 {
     private $_elementSetName = 'PBCore';
@@ -20,7 +23,6 @@ class PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
     protected $_hooks = array(
         'install',
         'uninstall',
-        'admin_append_to_plugin_uninstall_message',
         'config_form',
         'config',
         'after_save_item',
@@ -73,16 +75,6 @@ class PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
     }
 
     /**
-     * Warns before the uninstallation of the plugin.
-     */
-    public function hookAdminAppendToPluginUninstallMessage()
-    {
-        echo '<p><strong>' . __('Warning') . '</strong>:'
-            . __('This will remove all the "' . $this->_elementSetName . '" elements added by this plugin and permanently delete all element texts entered in those fields.')
-            . '</p>';
-    }
-
-    /**
      * Displays configuration form.
      *
      * @return void
@@ -119,7 +111,10 @@ class PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
             $text = WEB_ROOT . '/items/show/' . $item->id;
 
             // Check if this url already exists as an identifier.
-            $elementTexts = metadata($item, array('PBCore', 'Identifier'), array('all' => true, 'no_escape', 'no_filter'));
+            $elementTexts = $item->getElementTexts('PBCore', 'Identifier');
+            foreach ($elementTexts as $key => $elementText) {
+                $elementTexts[$key] = $elementText->text;
+            }
             if (!in_array($text, $elementTexts)) {
                 //// We use direct sql to avoid some problems with this update, in
                 //// particular when there are attached files.
