@@ -1,7 +1,7 @@
 <?php
     $elementSetMetadata = array(
-        'name'        => 'PBCore',
-        'description' => "PBCore is a metadata standard for audiovisual media developed by the public broadcasting community. See http://www.pbcore.org/documentation/",
+        'name'        => 'CAVPP_PBCore',
+        'description' => "CAVPP custom metadata element set, based on PBCore (a metadata standard for audiovisual media developed by the public broadcasting community. See http://www.pbcore.org/documentation/)",
         'record_type' => 'Item',
     );
 

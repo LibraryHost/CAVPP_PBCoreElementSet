@@ -1,21 +1,24 @@
 <?php
 /**
- * PBCore Element Set plugin
+ * CAVPP PBCore Element Set plugin
  *
- * Creates element set for PBCore (Public Broadcasting Metadata Dictionary), a
- * standard for digitalized documents (see http://pbcore.org).
+ * Creates a custom element set for 
+ * California Audiovisual Preservation Project based on 
+ * PBCore (Public Broadcasting Metadata Dictionary),
+ * a standard for digitalized documents (see http://pbcore.org).
  *
- * @copyright Pop Up Archive, 2012
+ * copyright LibraryHost, 2014
+ * Based on PBCore Element Set by Pop Up Archive, 2012
  * @license http://www.gnu.org/licenses/gpl-3.0.txt
  */
 
 /**
- * The PBCore Element Set plugin.
- * @package Omeka\Plugins\PBCoreElementSet
+ * The CAVPP PBCore Element Set plugin.
+ * @package Omeka\Plugins\CAVPP_PBCoreElementSet
  */
-class PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
+class CAVPP_PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
 {
-    private $_elementSetName = 'PBCore';
+    private $_elementSetName = 'CAVPP_PBCore';
 
     /**
      * @var array Hooks for the plugin.
@@ -43,7 +46,7 @@ class PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
      * @var array This plugin's options.
      */
     protected $_options = array(
-        'pbcore_element_set_add_url_as_identifier' => false,
+        'cavpp_pbcore_element_set_add_url_as_identifier' => false,
     );
 
     /**
@@ -93,7 +96,7 @@ class PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
     {
         $post = $args['post'];
 
-        set_option('pbcore_element_set_add_url_as_identifier', $post['PBCoreElementSetAddUrlAsIdentifier']);
+        set_option('cavpp_pbcore_element_set_add_url_as_identifier', $post['CAVPP_PBCoreElementSetAddUrlAsIdentifier']);
     }
 
     /**
@@ -107,11 +110,11 @@ class PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
         $item = $args['record'];
 
         // Add the default identifier if wished.
-        if ($args['insert'] && (boolean) get_option('pbcore_element_set_add_url_as_identifier')) {
+        if ($args['insert'] && (boolean) get_option('cavpp_pbcore_element_set_add_url_as_identifier')) {
             $text = WEB_ROOT . '/items/show/' . $item->id;
 
             // Check if this url already exists as an identifier.
-            $elementTexts = $item->getElementTexts('PBCore', 'Identifier');
+            $elementTexts = $item->getElementTexts('CAVPP_PBCore', 'Identifier');
             foreach ($elementTexts as $key => $elementText) {
                 $elementTexts[$key] = $elementText->text;
             }
@@ -125,7 +128,7 @@ class PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
                 // update_item($item, array(), $elementTexts);
                 static $elementId;
                 if (!$elementId) {
-                    $elementId = $this->_db->getTable('Element')->findByElementSetNameAndElementName('PBCore', 'Identifier')->id;
+                    $elementId = $this->_db->getTable('Element')->findByElementSetNameAndElementName('CAVPP_PBCore', 'Identifier')->id;
                 }
                 $sql = "
                     INSERT INTO {$this->_db->ElementText} (record_id, record_type, element_id, html, text)
@@ -146,10 +149,10 @@ class PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
     {
         $request = Zend_Controller_Front::getInstance()->getRequest();
         if ($request->getControllerName() == 'items' && $request->getActionName() == 'show') {
-            echo '<link rel="alternate" type="application/rss+xml" href="' . record_url(get_current_record('item')) . '?output=pbcore" id="pbcore"/>' . PHP_EOL;
+            echo '<link rel="alternate" type="application/rss+xml" href="' . record_url(get_current_record('item')) . '?output=cavpp_pbcore" id="cavpp_pbcore"/>' . PHP_EOL;
         }
         if ($request->getControllerName() == 'items' && $request->getActionName() == 'browse') {
-            echo '<link rel="alternate" type="application/rss+xml" href="' . record_url(get_current_record('item')) . '?output=pbcore" id="pbcore"/>' . PHP_EOL;
+            echo '<link rel="alternate" type="application/rss+xml" href="' . record_url(get_current_record('item')) . '?output=cavpp_pbcore" id="cavpp_pbcore"/>' . PHP_EOL;
         }
     }
 
@@ -203,8 +206,8 @@ class PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
 
     public function filterResponseContexts($contexts)
     {
-        $contexts['pbcore'] = array(
-            'suffix'  => 'pbcore',
+        $contexts['cavpp_pbcore'] = array(
+            'suffix'  => 'cavpp_pbcore',
             'headers' => array('Content-Type' => 'text/xml'),
         );
 
@@ -214,8 +217,8 @@ class PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
     public function filterActionContexts($contexts, $controller)
     {
         if ($controller['controller'] instanceof ItemsController) {
-            $contexts['show'][] = 'pbcore';
-            $contexts['browse'][] = 'pbcore';
+            $contexts['show'][] = 'cavpp_pbcore';
+            $contexts['browse'][] = 'cavpp_pbcore';
         }
 
         return $contexts;

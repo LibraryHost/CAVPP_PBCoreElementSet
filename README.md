@@ -1,17 +1,14 @@
-PBCore Element Set (plugin for Omeka)
+CAVPP PBCore Element Set (plugin for Omeka)
 =====================================
-
 
 Summary
 -------
 
-This plugin creates an element set and an output format for the PBCore standard.
-
-[PBCore][1] means "Public Broadcasting Metadata Dictionary". It's an xml format
-dedicated to digital public broadcasting and built on Dublin Core.
+This plugin creates a custom element set and an output format for the PBCore standard
+for the California Audiovisual Preservation Project.
 
 **Note**: PBCore standard is not totally implemented: only items useful for
-Omeka are added.
+Omeka are added. Additional extension elements have been added for CAVPP internal use.
 
 For more information on Omeka, see [Omeka][2].
 
@@ -19,7 +16,7 @@ For more information on Omeka, see [Omeka][2].
 Installation
 ------------
 
-Uncompress files and rename plugin folder "PBCoreElementSet".
+Uncompress files and rename plugin folder "CAVPP_PBCoreElementSet".
 
 Then install it like any other Omeka plugin. The plugin has no configuration.
 
@@ -35,7 +32,7 @@ It's always recommended to backup your database so you can roll back if needed.
 Troubleshooting
 ---------------
 
-See online issues on [GitHub][3].
+Contact us at [GitHub][3].
 
 
 License
@@ -65,24 +62,21 @@ Contact
 
 Current maintainers:
 
-* [Anne Wootton][5]
-* [Daniel Berthereau][6]
+* [Caitlin Nelson][5]
 
-First version of this plugin has been built for [Pop Up Archive][7].
+The first version of this plugin was built for 
+[Pop Up Archive][7] - thanks very much!.
 
 
 Copyright
 ---------
 
-* Copyright Pop Up Archive, 2012
-* Copyright Daniel Vizzini for Pop Up Archive, 2012
-* Copyright Daniel Berthereau for Pop Up Archive, 2012
+* Copyright LibraryHost, 2014
 
 
 [1]: http://pbcore.org "PBCore"
 [2]: http://www.omeka.org "Omeka.org"
-[3]: https://github.com/annewootton/PBCore-Element-Set/Issues "GitHub PBCore Element Set"
+[3]: https://github.com/LibraryHost/CAVPP_PBCoreElementSet "GitHub CAVPP PBCore Element Set"
 [4]: https://www.gnu.org/licenses/gpl-3.0.html "GNU/GPL"
-[5]: https://github.com/annewootton "Anne Wootton"
-[6]: https://github.com/Daniel-KM "Daniel Berthereau"
+[5]: https://github.com/caitlinLH ["Caitlin Nelson"]
 [7]: http://popuparchive.org "Pop Up Archive"
