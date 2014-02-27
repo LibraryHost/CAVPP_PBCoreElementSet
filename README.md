@@ -4,7 +4,7 @@ CAVPP PBCore Element Set (plugin for Omeka)
 Summary
 -------
 
-This plugin creates a custom element set and an output format for the PBCore standard
+This plugin creates a custom element set and an output format for the [PBCore][1] standard
 for the California Audiovisual Preservation Project.
 
 **Note**: PBCore standard is not totally implemented: only items useful for
@@ -76,7 +76,7 @@ Copyright
 
 [1]: http://pbcore.org "PBCore"
 [2]: http://www.omeka.org "Omeka.org"
-[3]: https://github.com/LibraryHost/CAVPP_PBCoreElementSet "GitHub CAVPP PBCore Element Set"
+[3]: https://github.com/LibraryHost/CAVPP_PBCoreElementSet "GitHub"
 [4]: https://www.gnu.org/licenses/gpl-3.0.html "GNU/GPL"
-[5]: https://github.com/caitlinLH ["Caitlin Nelson"]
+[5]: https://github.com/caitlinLH "Caitlin Nelson"
 [7]: http://popuparchive.org "Pop Up Archive"
