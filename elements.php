@@ -7,59 +7,123 @@
 
     $elements = array(
 
-        //Maps to Date Created (assetDate type:created).
-        array(
-            'label' => 'Date Created',
-            'name'  => 'Date Created',
-            'description' => 'The original date that the media item was created. In the case of raw interviews, the date on which the interview was conducted. Format: YYYY-MM-DD',
-            'data_type'   => 'Tiny Text',
+		//Institution. Maps to ??
+		array(
+            'label' => 'Institution',
+            'name'  => 'Institution',
+            'description' => 'Name of the contributing institution.',
+			'data_type' => 'Tiny Text',
         ),
-
-        //Maps to Date Broadcast (assetDate type:broadcast).
-        array(
-            'label' => 'Date Broadcast',
-            'name'  => 'Date Broadcast',
-            'description' => 'The date on which the audio was originally broadcast. Format: YYYY-MM-DD',
-            'data_type'   => 'Tiny Text',
+		
+		//Institution URL. No PBCore mapping.
+		array(
+            'label' => 'Institution URL',
+            'name'  => 'InstURL',
+            'description' => 'The URL for the holding institution.',
+			'data_type' => 'Tiny Text',
         ),
-
-        //AUTOFILL: URI for the Omeka landing page for the item. Identifier source is always Omeka.
-        array(
-            'label' => 'Identifier',
-            'name'  => 'Identifier',
-            'description' => 'Best practice is to identify the media item (whether analog or digital) by means of an unambiguous string or number corresponding to an established or formal identification system if one exists. We recommend using the item\'s Omeka URL. (e.g., http://myomeka.com/items/show/1) If you are using the Internet Archive Plugin, this field will be autofilled.',
-            'data_type'   => 'Tiny Text',
+		
+		//Institution Call # (identifier type). Maps to ??
+		array(
+            'label' => 'Institution Call Number',
+            'name'  => 'InstCallNumber',
+            'description' => 'Call number at the holding institution.',
+			'data_type' => 'Tiny Text',
         ),
-
-        //Item title
+		
+        //Item title. Maps to <pbcoreTitle titleType="Main">
         array(
             'label' => 'Title',
             'name'  => 'Title',
             'description' => 'The name given to the media item you are cataloging. It is the unique name everyone should use to refer to or search for a particular media item. There are situations in which no proper or given title is available, e.g., photographs or segments harvested from a longer work or program. In these situations a "supplied title" must be invented and used to name the media item. Be considerate of and sensitive to the end user who is attempting to search for your media item.',
             'data_type' => 'Tiny Text',
         ),
-
+		
+		//Maps to <pbcoreTitle titleType="Alternative">
         array(
-            'label' => 'Episode Title',
-            'name'  => 'Episode Title',
-            'description' => 'If applicable, the episode or piece to which a media item contributed.',
+            'label' => 'Additional Title',
+            'name'  => 'AdditionalTitle',
+            'description' =>'Additional Title.',
             'data_type'   => 'Tiny Text',
             '_refines'    => 'Title',
         ),
-
-        array(
+		
+		//Maps to <pbcoreTitle titleType="Series">
+		array(
             'label' => 'Series Title',
-            'name'  => 'Series Title',
+            'name'  => 'SeriesTitle',
             'description' =>'If applicable, the larger series to which the episode or piece contributed.',
             'data_type'   => 'Tiny Text',
             '_refines'    => 'Title',
         ),
+		
+		//Maps to <pbcoreTitle titleType="Label">.
+		array(
+            'label' => 'Label',
+            'name'  => 'Label',
+            'description' => 'CAVPP: Please provide a cataloging note here.',
+            'data_type'   => 'Tiny Text',
+            '_refines'    => 'Title',
+        ),
 
-        //We should have this field in our mapping doc.
+		
+        //Description. Maps to <pbcoreDescription descriptionType="Abstract">
         array(
-            'label' => 'Description',
+            'label' => 'Description or Content Summary',
             'name'  => 'Description',
             'description' => 'Uses free-form text to report abstracts, or summaries about the intellectual content of a media item you are cataloging. The information may be in the form of a paragraph giving an individual program description or brief content reviews.',
+        ),
+		
+		//Extension: Important to CA history. Maps to <pbcoreExtension> -- need detailed mapping
+		array(
+            'label' => 'Why is this important to California history?',
+            'name'  => 'HistExtension',
+            'description' => 'CAVPP: Please provide a cataloging note here.',
+        ),
+		
+		//Date Created. Maps to <pbcoreAssetDate dateType="created">.
+        array(
+            'label' => 'Date Created',
+            'name'  => 'DateCreated',
+            'description' => 'The original date that the media item was created. In the case of raw interviews, the date on which the interview was conducted. Format: YYYY-MM-DD',
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		//Date Published. Maps to <pbcoreAssetDate dateType="published">
+        array(
+            'label' => 'Date Published',
+            'name'  => 'DatePublished',
+            'description' => 'CAVPP: Please provide cataloging note here. Format: YYYY-MM-DD',
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		//Country of Creation.
+        array(
+            'label' => 'Country of Creation',
+            'name'  => 'CountryCreation',
+            'description' => 'CAVPP: Please provide cataloging note here.',
+			'data_type' => 'Tiny Text',
+        ),
+				
+		//Creators (dropdown list?)
+		
+		//Contributors
+		
+		//Publishers
+		
+		//Copyright Statement. Maps to <pbcoreRightsSummary><rightsSummary>.		
+        array(
+            'label' => 'Copyright Statement',
+            'name'  => 'Rights',
+            'description'   => 'Information about rights to the media item. Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.',
+        ),
+		
+        //URI for the Omeka landing page for the item. Identifier source is always Omeka.
+        array(
+            'label' => 'Identifier',
+            'name'  => 'Identifier',
+            'description' => 'Best practice is to identify the media item (whether analog or digital) by means of an unambiguous string or number corresponding to an established or formal identification system if one exists. We recommend using the item\'s Omeka URL. (e.g., http://myomeka.com/items/show/1) If you are using the Internet Archive Plugin, this field will be autofilled.',
+            'data_type'   => 'Tiny Text',
         ),
 
         //AUTOFILL: but make editable.
@@ -92,12 +156,6 @@
             'name'  => 'Host',
             'description' => 'If applicable, the person hosting the broadcast piece. (For personal names use "LastName, FirstName MiddleName, Suffix").',
             'data_type'   => 'Tiny Text',
-        ),
-
-        array(
-            'label' => 'Rights',
-            'name'  => 'Rights',
-            'description'   => 'Information about rights to the media item. Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.',
         ),
 
         //Physical format comes with a picklist
