@@ -494,7 +494,7 @@
             'data_type'   => 'Tiny Text',
         ),
 
-		// Subtitles/Intertitles/Closed Captions
+		// Subtitles / Intertitles / Closed Captions
 		array(
             'label' => 'AlternativeModes',
             'name'  => 'Subtitles/Intertitles/Closed Captions',
