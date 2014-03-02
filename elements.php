@@ -497,8 +497,8 @@
 		// Subtitles / Intertitles / Closed Captions
 		array(
             'label' => 'AlternativeModes',
-            'name'  => 'Subtitles/Intertitles/Closed Captions',
-            'description' => 'Subtitles/Intertitles/Closed Captions.',
+            'name'  => 'Subtitles / Intertitles / Closed Captions',
+            'description' => 'Subtitles / Intertitles / Closed Captions.',
             'data_type'   => 'Tiny Text',
         ),
 
