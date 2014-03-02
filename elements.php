@@ -17,16 +17,16 @@
 		
 		//Institution URL. No PBCore mapping.
 		array(
-            'label' => 'Institution URL',
-            'name'  => 'InstURL',
+            'label' => 'InstitutionURL',
+            'name'  => 'Institution URL',
             'description' => 'The URL for the holding institution.',
 			'data_type' => 'Tiny Text',
         ),
 		
 		//Institution Call # (identifier type). Maps to ??
 		array(
-            'label' => 'Institution Call Number',
-            'name'  => 'InstCallNumber',
+            'label' => 'InstitutionCallNumber',
+            'name'  => 'Institution Call Number',
             'description' => 'Call number at the holding institution.',
 			'data_type' => 'Tiny Text',
         ),
@@ -41,8 +41,8 @@
 		
 		//Maps to <pbcoreTitle titleType="Alternative">
         array(
-            'label' => 'Additional Title',
-            'name'  => 'AdditionalTitle',
+            'label' => 'AdditionalTitle',
+            'name'  => 'Additional Title',
             'description' =>'Additional Title.',
             'data_type'   => 'Tiny Text',
             '_refines'    => 'Title',
@@ -50,8 +50,8 @@
 		
 		//Maps to <pbcoreTitle titleType="Series">
 		array(
-            'label' => 'Series Title',
-            'name'  => 'SeriesTitle',
+            'label' => 'SeriesTitle',
+            'name'  => 'Series Title',
             'description' =>'If applicable, the larger series to which the episode or piece contributed.',
             'data_type'   => 'Tiny Text',
             '_refines'    => 'Title',
@@ -69,15 +69,15 @@
 		
         //Description. Maps to <pbcoreDescription descriptionType="Abstract">
         array(
-            'label' => 'Description or Content Summary',
-            'name'  => 'Description',
+            'label' => 'Description',
+            'name'  => 'Description or Content Summary',
             'description' => 'Uses free-form text to report abstracts, or summaries about the intellectual content of a media item you are cataloging. The information may be in the form of a paragraph giving an individual program description or brief content reviews.',
         ),
 		
 		//Extension: Important to CA history. Maps to <pbcoreExtension> -- need detailed mapping
 		array(
-            'label' => 'Why is this important to California history?',
-            'name'  => 'HistExtension',
+            'label' => 'HistoryExtension',
+            'name'  => 'Why is this important to California history?',
             'description' => 'CAVPP: Please provide a cataloging note here.',
         ),
 		
@@ -114,7 +114,7 @@
 		//Copyright Statement. Maps to <pbcoreRightsSummary><rightsSummary>.		
         array(
             'label' => 'Copyright Statement',
-            'name'  => 'Rights',
+            'name'  => 'CopyrightStatement',
             'description'   => 'Information about rights to the media item. Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.',
         ),
 		
