@@ -7,7 +7,9 @@
 
     $elements = array(
 
-		//Institution. Maps to ??
+	//////////// Descriptive / Admin Metadata ///////////
+	
+		// Institution. Maps to ??
 		array(
             'label' => 'Institution',
             'name'  => 'Institution',
@@ -15,7 +17,7 @@
 			'data_type' => 'Tiny Text',
         ),
 		
-		//Institution URL. No PBCore mapping.
+		// Institution URL. No PBCore mapping.
 		array(
             'label' => 'InstitutionURL',
             'name'  => 'Institution URL',
@@ -23,7 +25,7 @@
 			'data_type' => 'Tiny Text',
         ),
 		
-		//Institution Call # (identifier type). Maps to ??
+		// Institution Call # (identifier type). Maps to ??
 		array(
             'label' => 'InstitutionCallNumber',
             'name'  => 'Institution Call Number',
@@ -31,7 +33,7 @@
 			'data_type' => 'Tiny Text',
         ),
 		
-        //Item title. Maps to <pbcoreTitle titleType="Main">
+        // Item title. Maps to <pbcoreTitle titleType="Main">
         array(
             'label' => 'Title',
             'name'  => 'Title',
@@ -39,7 +41,7 @@
             'data_type' => 'Tiny Text',
         ),
 		
-		//Maps to <pbcoreTitle titleType="Alternative">
+		// Additional Title. Maps to <pbcoreTitle titleType="Alternative">
         array(
             'label' => 'AdditionalTitle',
             'name'  => 'Additional Title',
@@ -48,7 +50,7 @@
             '_refines'    => 'Title',
         ),
 		
-		//Maps to <pbcoreTitle titleType="Series">
+		// Series Title. Maps to <pbcoreTitle titleType="Series">
 		array(
             'label' => 'SeriesTitle',
             'name'  => 'Series Title',
@@ -57,7 +59,7 @@
             '_refines'    => 'Title',
         ),
 		
-		//Maps to <pbcoreTitle titleType="Label">.
+		// Label. Maps to <pbcoreTitle titleType="Label">.
 		array(
             'label' => 'Label',
             'name'  => 'Label',
@@ -67,21 +69,21 @@
         ),
 
 		
-        //Description. Maps to <pbcoreDescription descriptionType="Abstract">
+        // Description. Maps to <pbcoreDescription descriptionType="Abstract">
         array(
             'label' => 'Description',
             'name'  => 'Description or Content Summary',
             'description' => 'Uses free-form text to report abstracts, or summaries about the intellectual content of a media item you are cataloging. The information may be in the form of a paragraph giving an individual program description or brief content reviews.',
         ),
 		
-		//Extension: Important to CA history. Maps to <pbcoreExtension> -- need detailed mapping
+		// Extension: Important to CA history. Maps to <pbcoreExtension> -- need detailed mapping
 		array(
             'label' => 'HistoryExtension',
             'name'  => 'Why is this important to California history?',
             'description' => 'CAVPP: Please provide a cataloging note here.',
         ),
 		
-		//Date Created. Maps to <pbcoreAssetDate dateType="created">.
+		// Date Created. Maps to <pbcoreAssetDate dateType="created">.
         array(
             'label' => 'Date Created',
             'name'  => 'DateCreated',
@@ -89,7 +91,7 @@
             'data_type'   => 'Tiny Text',
         ),
 		
-		//Date Published. Maps to <pbcoreAssetDate dateType="published">
+		// Date Published. Maps to <pbcoreAssetDate dateType="published">
         array(
             'label' => 'Date Published',
             'name'  => 'DatePublished',
@@ -97,7 +99,7 @@
             'data_type'   => 'Tiny Text',
         ),
 		
-		//Country of Creation.
+		// Extension: Country of Creation. Maps to extension --> 
         array(
             'label' => 'Country of Creation',
             'name'  => 'CountryCreation',
@@ -105,122 +107,403 @@
 			'data_type' => 'Tiny Text',
         ),
 				
-		//Creators (dropdown list?)
-		
-		//Contributors
-		
-		//Publishers
-		
-		//Copyright Statement. Maps to <pbcoreRightsSummary><rightsSummary>.		
+		// Creators (dropdown list?)
+		// // Director
         array(
-            'label' => 'Copyright Statement',
-            'name'  => 'CopyrightStatement',
-            'description'   => 'Information about rights to the media item. Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.',
-        ),
-		
-        //URI for the Omeka landing page for the item. Identifier source is always Omeka.
-        array(
-            'label' => 'Identifier',
-            'name'  => 'Identifier',
-            'description' => 'Best practice is to identify the media item (whether analog or digital) by means of an unambiguous string or number corresponding to an established or formal identification system if one exists. We recommend using the item\'s Omeka URL. (e.g., http://myomeka.com/items/show/1) If you are using the Internet Archive Plugin, this field will be autofilled.',
+            'label' => 'Director',
+            'name'  => 'Director',
+            'description' => 'Director. (For personal names use "LastName, FirstName MiddleName, Suffix").',
             'data_type'   => 'Tiny Text',
         ),
-
-        //AUTOFILL: but make editable.
+		
+		// // Interviewer
         array(
-            'label' => 'Creator',
-            'name'  => 'Creator',
-            'description'   => 'Identifies a person or organization primarily responsible for creating a media item. The creator may be considered an author and could be one or more people, a business, organization, group, project or service. (For personal names use "LastName, FirstName MiddleName, Suffix").',
+            'label' => 'Interviewer',
+            'name'  => 'Interviewer',
+            'description' => 'Interviewer. (For personal names use "LastName, FirstName MiddleName, Suffix").',
             'data_type'   => 'Tiny Text',
         ),
+		
+		// // Performer
+        array(
+            'label' => 'Performer',
+            'name'  => 'Performer',
+            'description' => 'Performer. (For personal names use "LastName, FirstName MiddleName, Suffix").',
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		// // Producer
+		        array(
+            'label' => 'Producer',
+            'name'  => 'Producer',
+            'description' => 'Producer. (For personal names use "LastName, FirstName MiddleName, Suffix").',
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		// // Writer
+        array(
+            'label' => 'Writer',
+            'name'  => 'Writer',
+            'description' => 'Writer. (For personal names use "LastName, FirstName MiddleName, Suffix").',
+            'data_type'   => 'Tiny Text',
+        ),		
 
-        //We should have this field in our mapping doc.
+		// Contributors
+		// // Camera
+        array(
+            'label' => 'Camera',
+            'name'  => 'Camera',
+            'description' => 'Camera technician. (For personal names use "LastName, FirstName MiddleName, Suffix").',
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		// // Cast
+		array(
+            'label' => 'Cast',
+            'name'  => 'Cast',
+            'description' => 'Cast member. (For personal names use "LastName, FirstName MiddleName, Suffix").',
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		// // Editor
+        array(
+            'label' => 'Editor',
+            'name'  => 'Editor',
+            'description' => 'Editor. (For personal names use "LastName, FirstName MiddleName, Suffix").',
+            'data_type'   => 'Tiny Text',
+        ),		
+		
+		// // Interviewee
         array(
             'label' => 'Interviewee',
             'name'  => 'Interviewee',
             'description' => 'The person(s) being interviewed. (For personal names use "LastName, FirstName MiddleName, Suffix").',
             'data_type'   => 'Tiny Text',
         ),
-
-        //We should have this field in our mapping doc.
+		
+		// // Music
         array(
-            'label' => 'Interviewer',
-            'name'  => 'Interviewer',
-            'description'   => 'The person(s) conducting the interview. (For personal names use "LastName, FirstName MiddleName, Suffix").',
+            'label' => 'Music',
+            'name'  => 'Music',
+            'description' => 'Music technician. (For personal names use "LastName, FirstName MiddleName, Suffix").',
+            'data_type'   => 'Tiny Text',
+        ),		
+		
+		// // Sound
+        array(
+            'label' => 'Sound',
+            'name'  => 'Sound',
+            'description' => 'Sound technician. (For personal names use "LastName, FirstName MiddleName, Suffix").',
+            'data_type'   => 'Tiny Text',
+        ),		
+		
+		// // Speaker
+        array(
+            'label' => 'Speaker',
+            'name'  => 'Speaker',
+            'description' => 'Speaker. (For personal names use "LastName, FirstName MiddleName, Suffix").',
+            'data_type'   => 'Tiny Text',
+        ),		
+		
+		// Publishers
+		// // Publisher
+		array(
+            'label' => 'Publisher',
+            'name'  => 'Publisher',
+            'description' => 'Publisher. (For personal names use "LastName, FirstName MiddleName, Suffix").',
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		// // Distributor
+		array(
+            'label' => 'Distributor',
+            'name'  => 'Distributor',
+            'description' => 'Distributor. (For personal names use "LastName, FirstName MiddleName, Suffix").',
+            'data_type'   => 'Tiny Text',
+        ),		
+
+		// Copyright Statement. Maps to <pbcoreRightsSummary><rightsSummary>.		
+        array(
+            'label' => 'CopyrightStatement',
+            'name'  => 'Copyright Statement',
+            'description'   => 'Information about rights to the media item. Typically, rights information includes a statement about various property rights associated with the resource, including intellectual property rights.',
+        ),
+		
+		// Language
+		array(
+            'label' => 'Language',
+            'name'  => 'Language',
+            'description' => 'Language.',
+            'data_type'   => 'Tiny Text',
+        ),		
+		
+		// Subject Topic
+		array(
+            'label' => 'SubjectTopic',
+            'name'  => 'Subject Topic',
+            'description' => 'Language.',
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		// Subject Entity
+		array(
+            'label' => 'SubjectEntity',
+            'name'  => 'Subject Entity',
+            'description' => 'Subject Entity. (For personal names use "LastName, FirstName MiddleName, Suffix").',
             'data_type'   => 'Tiny Text',
         ),
 
-        //We should have this field in our mapping doc.
-        array(
-            'label' => 'Host',
-            'name'  => 'Host',
-            'description' => 'If applicable, the person hosting the broadcast piece. (For personal names use "LastName, FirstName MiddleName, Suffix").',
+		// Spatial Coverage
+		array(
+            'label' => 'SpatialCoverage',
+            'name'  => 'Spatial Coverage',
+            'description' => 'Spatial Coverage.',
             'data_type'   => 'Tiny Text',
         ),
 
-        //Physical format comes with a picklist
-        array(
-            'label'  => 'Physical Format',
-            'name'  => 'Physical Format',
-            'description' => 'The format of a particular version or rendition of a media item as it exists in an actual physical form that occupies physical space (e.g., a tape on a shelf), rather than as a digital file residing on a server or hard drive.',
+		// Temporal Coverage
+		array(
+            'label' => 'TemporalCoverage',
+            'name'  => 'Temporal Coverage',
+            'description' => 'Temporal Coverage. Format: YYYY-MM-DD',
             'data_type'   => 'Tiny Text',
         ),
 
-        //Display digital format also comes with a picklist. Mimetype of original uploaded file. Should be the mimetype of whatever the instantiation is. Potentially prepopulate.
-        array(
-            'label' => 'Digital Format',
-            'name'  => 'Digital Format',
+		// Genre
+		array(
+            'label' => 'Genre',
+            'name'  => 'Genre',
+            'description' => 'Genre.',
             'data_type'   => 'Tiny Text',
         ),
 
-        //This is not hardcoded.
-        array(
-            'label' => 'Physical Location',
-            'name'  => 'Physical Location',
-            'description' => 'An address for a physical media item. For an organization or producer acting as caretaker of a media resource, this field may contain information about a specific shelf location for an item, including an organization\'s name, departmental name, shelf ID and contact information.',
+		// Cataloger Notes
+		array(
+            'label' => 'CatalogerNotes',
+            'name'  => 'Cataloger Notes',
+            'description' => 'Cataloger Notes.',
+        ),
+
+		// Additional Descriptive Notes for Work
+		array(
+            'label' => 'DescriptiveNotes',
+            'name'  => 'Additional Descriptive Notes for Work',
+            'description' => 'Additional Descriptive Notes for Work.',
+        ),
+
+		// Additional Technical Notes for Work
+		array(
+            'label' => 'TechnicalNotes',
+            'name'  => 'Additional Technical Notes for Work',
+            'description' => 'Additional Technical Notes for Work.',
+        ),
+
+		//Collection Guide Title
+		array(
+            'label' => 'CollectionGuideTitle',
+            'name'  => 'Collection Guide Title',
+            'description' => 'Collection Guide Title.',
             'data_type'   => 'Tiny Text',
         ),
 
-        //AUTOFILL: Internet Archive landing page for the item. Maps to instantiationLocation in PBCore XML.
-        array(
-            'label' => 'Digital Location',
-            'name'  => 'Digital Location',
-            'description' => 'An address for a digital media item. Employs an unambiguous reference or identifier for a digital rendition/instantiation of a media item and may include domain, path, filename or html page. This includes URIs for each digital file format created by the Internet Archive (will have multiple values).',
+		// Collection Guide URL
+		array(
+            'label' => 'CollectionGuideURL',
+            'name'  => 'Collection Guide URL',
+            'description' => 'Collection Guide URL.',
+            'data_type'   => 'Tiny Text',
+        ),
+	
+		//Identifiers
+		// // Internet Archive URL
+		array(
+            'label' => 'InternetArchiveURL',
+            'name'  => 'Internet Archive URL',
+            'description' => 'Internet Archive URL.',
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		// // Object Identifier
+		array(
+            'label' => 'ObjectIdentifier',
+            'name'  => 'Object Identifier',
+            'description' => 'Object Identifier.',
             'data_type'   => 'Tiny Text',
         ),
 
-        //AUTOFILL: Can we automatically detect duration of files when they are uploaded?
-        array(
+		// // Project Identifier
+		array(
+            'label' => 'ProjectIdentifier',
+            'name'  => 'Project Identifier',
+            'description' => 'Project Identifier.',
+            'data_type'   => 'Tiny Text',
+        ),
+
+		// Asset Type
+		array(
+            'label' => 'AssetType',
+            'name'  => 'Asset Type',
+            'description' => 'Asset Type.',
+            'data_type'   => 'Tiny Text',
+        ),
+
+		// Object ARK
+		array(
+            'label' => 'ObjectARK',
+            'name'  => 'Object ARK',
+            'description' => 'Object ARK.',
+            'data_type'   => 'Tiny Text',
+        ),
+
+		// Institution ARK
+		array(
+            'label' => 'InstitutionARK',
+            'name'  => 'Institution ARK',
+            'description' => 'Institution ARK.',
+            'data_type'   => 'Tiny Text',
+        ),
+
+		// CAVPP Quality Control Notes
+		array(
+            'label' => 'CAVPPQC',
+            'name'  => 'CAVPP Quality Control Notes',
+            'description' => 'CAVPP Quality Control Notes.',
+        ),
+
+		// Partner Quality Control Notes
+		array(
+            'label' => 'PartnerQC',
+            'name'  => 'Partner Quality Control Notes',
+            'description' => 'Partner Quality Control Notes.',
+        ),		
+		
+		
+	///////////// Item Type Metadata //////////////
+	
+		// Moving Image and Sound sources
+
+		// Generation
+		array(
+            'label' => 'Generations',
+            'name'  => 'Generations',
+            'description' => 'Generations.',
+            'data_type'   => 'Tiny Text',
+        ),
+
+		// Format
+		array(
+            'label' => 'Format',
+            'name'  => 'Format',
+            'description' => 'Format.',
+            'data_type'   => 'Tiny Text',
+        ),
+
+		// Extent
+		array(
+            'label' => 'Extent',
+            'name'  => 'Extent',
+            'description' => 'Extent.',
+            'data_type'   => 'Tiny Text',
+        ),
+
+		// Duration
+		array(
             'label' => 'Duration',
             'name'  => 'Duration',
-            'description'   => 'Provides a timestamp for the overall length or duration of the audio. Represents the playback time. Format: HH:MM:SS',
+            'description' => 'Duration.',
             'data_type'   => 'Tiny Text',
         ),
 
-        array(
-            'label'       => 'Music/Sound Used',
-            'name'        => 'Music/Sound Used',
-            'description' => 'Details on music or other sound clips that contributed to the piece. May include title, artist, album, timestamp, producer and record label information.',
-        ),
-
-        array(
-            'label' => 'Date Peg',
-            'name'  => 'Date Peg',
-            'description' => 'A holiday or other date relevant to the item (e.g., Christmas, Yom Kippur, Independence Day).',
+		// Running Speed
+		array(
+            'label' => 'RunningSpeed',
+            'name'  => 'Running Speed',
+            'description' => 'Running Speed.',
             'data_type'   => 'Tiny Text',
         ),
 
-        array(
-            'label'       => 'Notes',
-            'name'        => 'Notes',
-            'description' => 'Any other notes or information about the media item, including bibliography/research information, contact information, and legacy metadata.',
-            'data_type'   => 'Text',
+		// Timecode Content Begins
+		array(
+            'label' => 'TimecodeContentBegins',
+            'name'  => 'Timecode Content Begins ARK',
+            'description' => 'Timecode Content Begins.',
+            'data_type'   => 'Tiny Text',
         ),
 
-        array(
-            'label' => 'Transcription',
-            'name'  => 'Transcription',
-            'description' => 'The textual transcription of the media item.',
-            'data_type'   => 'Text',
+		// Track Standard
+		array(
+            'label' => 'TrackStandard',
+            'name'  => 'Track Standard',
+            'description' => 'Track Standard.',
+            'data_type'   => 'Tiny Text',
         ),
+
+		// Channel Configuration
+		array(
+            'label' => 'ChannelConfiguration',
+            'name'  => 'Channel Configuration',
+            'description' => 'Channel Configuration.',
+            'data_type'   => 'Tiny Text',
+        ),
+
+		// Stock Manufacturer
+		array(
+            'label' => 'StockManufacturer',
+            'name'  => 'Stock Manufacturer',
+            'description' => 'Stock Manufacturer.',
+            'data_type'   => 'Tiny Text',
+        ),
+
+		// Base Type
+		array(
+            'label' => 'BaseType',
+            'name'  => 'Base Type',
+            'description' => 'Base Type.',
+            'data_type'   => 'Tiny Text',
+        ),
+
+		// Transcript
+		array(
+            'label' => 'Transcript',
+            'name'  => 'Transcript',
+            'description' => 'Transcript.',
+        ),
+		
+		// Moving Image Only Sources
+		// Silent or Sound
+		array(
+            'label' => 'SilentorSound',
+            'name'  => 'Silent or Sound',
+            'description' => 'Silent or Sound.',
+            'data_type'   => 'Tiny Text',
+        ),
+
+		// Color and/or Black and White
+		array(
+            'label' => 'Colors',
+            'name'  => 'Color and/or Black and White',
+            'description' => 'Color and/or Black and White.',
+            'data_type'   => 'Tiny Text',
+        ),
+
+		// Aspect Ratio
+		array(
+            'label' => 'AspectRatio',
+            'name'  => 'Aspect Ratio',
+            'description' => 'Aspect Ratio.',
+            'data_type'   => 'Tiny Text',
+        ),
+
+		// Subtitles/Intertitles/Closed Captions
+		array(
+            'label' => 'AlternativeModes',
+            'name'  => 'Subtitles/Intertitles/Closed Captions',
+            'description' => 'Subtitles/Intertitles/Closed Captions.',
+            'data_type'   => 'Tiny Text',
+        ),
+
+	//////// Technical Vendor Metadata //////////////
+		
+
+       
     );
