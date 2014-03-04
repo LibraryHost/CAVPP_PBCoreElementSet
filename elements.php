@@ -586,7 +586,7 @@
 		// // Duration
 		array(
             'label' => 'Duration-Vendor',
-            'name'  => 'Duration',
+            'name'  => 'Vendor Duration',
             'description' => 'Duration.',
             'data_type'   => 'Tiny Text',
         ),
@@ -610,7 +610,7 @@
 		// // Channel Configuration
 		array(
             'label' => 'ChannelConfiguration-Vendor',
-            'name'  => 'Channel Configuration',
+            'name'  => 'Vendor Channel Configuration',
             'description' => 'Channel Configuration.',
             'data_type'   => 'Tiny Text',
         ),
