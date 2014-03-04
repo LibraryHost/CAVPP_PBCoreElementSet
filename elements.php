@@ -9,27 +9,27 @@
 
 	//////////// Descriptive / Admin Metadata ///////////
 	
-		// Institution. Maps to ??
+		// Institution. Maps to <pbcoreCollection collectionSource>
 		array(
             'label' => 'Institution',
             'name'  => 'Institution',
-            'description' => 'Name of the contributing institution.',
+            'description' => 'Name of Institution.',
 			'data_type' => 'Tiny Text',
         ),
 		
-		// Institution URL. No PBCore mapping.
+		// Institution URL. Maps to <pbcoreCollection collectionRef>
 		array(
             'label' => 'InstitutionURL',
             'name'  => 'Institution URL',
-            'description' => 'The URL for the holding institution.',
+            'description' => 'Institution\'s website.',
 			'data_type' => 'Tiny Text',
         ),
 		
-		// Institution Call # (identifier type). Maps to ??
+		// Institution Call # (identifier type). Maps to <pbcoreIdentifier identifierType="Call Number">
 		array(
             'label' => 'InstitutionCallNumber',
             'name'  => 'Institution Call Number',
-            'description' => 'Call number at the holding institution.',
+            'description' => 'Institution\'s unique identifier (call number, acquisition number, shelf code).',
 			'data_type' => 'Tiny Text',
         ),
 		
@@ -37,11 +37,11 @@
         array(
             'label' => 'Title',
             'name'  => 'Title',
-            'description' => 'The name given to the media item you are cataloging. It is the unique name everyone should use to refer to or search for a particular media item. There are situations in which no proper or given title is available, e.g., photographs or segments harvested from a longer work or program. In these situations a "supplied title" must be invented and used to name the media item. Be considerate of and sensitive to the end user who is attempting to search for your media item.',
+            'description' => 'Main Title. Use brackets for supplied titles.',
             'data_type' => 'Tiny Text',
         ),
 		
-		// Additional Title. Maps to <pbcoreTitle titleType="Alternative">
+		// Additional Title. Maps to <pbcoreTitle titleType="Summary">
         array(
             'label' => 'AdditionalTitle',
             'name'  => 'Additional Title',
@@ -425,7 +425,7 @@
 		// Timecode Content Begins
 		array(
             'label' => 'TimecodeContentBegins',
-            'name'  => 'Timecode Content Begins ARK',
+            'name'  => 'Timecode Content Begins',
             'description' => 'Timecode Content Begins.',
             'data_type'   => 'Tiny Text',
         ),
