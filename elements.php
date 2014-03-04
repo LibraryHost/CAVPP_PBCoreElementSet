@@ -85,24 +85,24 @@
 		
 		// Date Created. Maps to <pbcoreAssetDate dateType="created">.
         array(
-            'label' => 'Date Created',
-            'name'  => 'DateCreated',
+            'label' => 'DateCreated',
+            'name'  => 'Date Created',
             'description' => 'The original date that the media item was created. In the case of raw interviews, the date on which the interview was conducted. Format: YYYY-MM-DD',
             'data_type'   => 'Tiny Text',
         ),
 		
 		// Date Published. Maps to <pbcoreAssetDate dateType="published">
         array(
-            'label' => 'Date Published',
-            'name'  => 'DatePublished',
+            'label' => 'DatePublished',
+            'name'  => 'Date Published',
             'description' => 'CAVPP: Please provide cataloging note here. Format: YYYY-MM-DD',
             'data_type'   => 'Tiny Text',
         ),
 		
 		// Extension: Country of Creation. Maps to extension --> 
         array(
-            'label' => 'Country of Creation',
-            'name'  => 'CountryCreation',
+            'label' => 'CountryCreation',
+            'name'  => 'Country of Creation',
             'description' => 'CAVPP: Please provide cataloging note here.',
 			'data_type' => 'Tiny Text',
         ),
@@ -503,7 +503,132 @@
         ),
 
 	//////// Technical Vendor Metadata //////////////
+		// // Digital File Identifier(s)
+		array(
+            'label' => 'DigitalFile',
+            'name'  => 'Digital File Identifier(s)',
+            'description' => 'Digital File Identifier(s).',
+            'data_type'   => 'Tiny Text',
+        ),
 		
+		// // Creation Date
+		array(
+            'label' => 'CreationDate',
+            'name'  => 'Creation Date',
+            'description' => 'Creation Date.',
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		// // Frame Size
+		array(
+            'label' => 'FrameSize',
+            'name'  => 'Frame Size',
+            'description' => 'Frame Size.',
+            'data_type'   => 'Tiny Text',
+        ),
 
-       
-    );
+		// // File Extension
+		array(
+            'label' => 'File Extension',
+            'name'  => 'File Extension',
+            'description' => 'File Extension.',
+            'data_type'   => 'Tiny Text',
+        ),
+
+		// // Standard and File Wrapper
+		array(
+            'label' => 'Standard',
+            'name'  => 'Standard and File Wrapper',
+            'description' => 'Standard and File Wrapper.',
+            'data_type'   => 'Tiny Text',
+        ),
+
+		// // File Location
+		array(
+            'label' => 'FileLocation',
+            'name'  => 'File Location',
+            'description' => 'File Location.',
+            'data_type'   => 'Tiny Text',
+        ),
+
+		// // Media Type
+		array(
+            'label' => 'MediaType',
+            'name'  => 'Media Type',
+            'description' => 'Media Type.',
+            'data_type'   => 'Tiny Text',
+        ),
+
+		// // Generation
+		array(
+            'label' => 'Generation-Vendor',
+            'name'  => 'Generation',
+            'description' => 'Generation.',
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		// // Preservation Filesize
+		array(
+            'label' => 'PreservationFilesize',
+            'name'  => 'Preservation Filesize',
+            'description' => 'Preservation Filesize.',
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		// // Access Filesize
+		array(
+            'label' => 'AccessFilesize',
+            'name'  => 'Access Filesize',
+            'description' => 'Access Filesize.',
+            'data_type'   => 'Tiny Text',
+        ),
+
+		// // Duration
+		array(
+            'label' => 'Duration-Vendor',
+            'name'  => 'Duration',
+            'description' => 'Duration.',
+            'data_type'   => 'Tiny Text',
+        ),
+
+		// // Colors
+		array(
+            'label' => 'Colors-Vendor',
+            'name'  => 'Colors',
+            'description' => 'Colors.',
+            'data_type'   => 'Tiny Text',
+        ),
+
+		// // Tracks
+		array(
+            'label' => 'Tracks',
+            'name'  => 'Tracks',
+            'description' => 'Tracks.',
+            'data_type'   => 'Tiny Text',
+        ),
+
+		// // Channel Configuration
+		array(
+            'label' => 'ChannelConfiguration-Vendor',
+            'name'  => 'Channel Configuration',
+            'description' => 'Channel Configuration.',
+            'data_type'   => 'Tiny Text',
+        ),
+
+		// // Track Type
+		array(
+            'label' => 'TrackType',
+            'name'  => 'Track Type',
+            'description' => 'Track Type.',
+            'data_type'   => 'Tiny Text',
+        ),
+
+		// // Encoder 
+		array(
+            'label' => 'Encoder',
+            'name'  => 'Encoder',
+            'description' => 'Encoder.',
+            'data_type'   => 'Tiny Text',
+        ),
+
+	);
