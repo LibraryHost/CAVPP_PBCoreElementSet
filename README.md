@@ -10,6 +10,9 @@ for the California Audiovisual Preservation Project.
 **Note**: PBCore standard is not totally implemented: only items useful for
 Omeka are added. Additional extension elements have been added for CAVPP internal use.
 
+**Note**: This plugin is currently UNDER DEVELOPMENT
+and is subject to rebasing / history rewriting.
+
 For more information on Omeka, see [Omeka][2].
 
 
