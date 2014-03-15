@@ -26,9 +26,6 @@ class CAVPP_PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
     protected $_hooks = array(
         'install',
         'uninstall',
-        /* 'config_form',
-        'config',
-        'after_save_item', */
         'public_theme_header',
         // BeamMeUpToInternetArchive hook used to get list of metadata.
         'beamia_set_settings',
@@ -41,13 +38,6 @@ class CAVPP_PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
         'response_contexts',
         'action_contexts',
     );
-
-    /**
-     * @var array This plugin's options.
-     */
-    /* protected $_options = array(
-        'cavpp_pbcore_element_set_add_url_as_identifier' => false,
-    ); */
 
     /**
      * Install the plugin.
@@ -77,74 +67,10 @@ class CAVPP_PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
         $this->_uninstallOptions();
     }
 
-    /**
-     * Displays configuration form.
-     *
-     * @return void
-     */
-    /* public function hookConfigForm()
-    {
-        include('config_form.php');
-    } */
 
-    /**
-     * Saves plugin configuration.
-     *
-     * @return void
-     */
-    /* public function hookConfig($args)
-    {
-        $post = $args['post'];
-
-        set_option('cavpp_pbcore_element_set_add_url_as_identifier', $post['CAVPP_PBCoreElementSetAddUrlAsIdentifier']);
-    } */
-
-    /**
-     * The recommended pbcore identifier is to use the omeka url with current
-     * id, so we need to update the item once it is saved for the first time
-     * (insert). An option is added to disable this feature.
-     */
-    /* public function hookAfterSaveItem($args)
-    {
-        $post = $args['post'];
-        $item = $args['record'];
-
-        // Add the default identifier if wished.
-        if ($args['insert'] && (boolean) get_option('cavpp_pbcore_element_set_add_url_as_identifier')) {
-            $text = WEB_ROOT . '/items/show/' . $item->id;
-
-            // Check if this url already exists as an identifier.
-            $elementTexts = $item->getElementTexts('CAVPP_PBCore', 'Identifier');
-            foreach ($elementTexts as $key => $elementText) {
-                $elementTexts[$key] = $elementText->text;
-            }
-            if (!in_array($text, $elementTexts)) {
-                //// We use direct sql to avoid some problems with this update, in
-                //// particular when there are attached files.
-                // $elementTexts = array($this->_elementSetName => array('Identifier' => array(array(
-                //     'text' => $text,
-                //     'html' => false,
-                // ))));
-                // update_item($item, array(), $elementTexts);
-                static $elementId;
-                if (!$elementId) {
-                    $elementId = $this->_db->getTable('Element')->findByElementSetNameAndElementName('CAVPP_PBCore', 'Identifier')->id;
-                }
-                $sql = "
-                    INSERT INTO {$this->_db->ElementText} (record_id, record_type, element_id, html, text)
-                    VALUES ('{$item->id}', 'Item', '{$elementId}', '0', '$text')
-                ";
-                $this->_db->query($sql);
-            }
-        }
-        // Update or remove (see status).
-        else {
-            // Nothing, because the user should be able to remove or update the
-            // default identifier manually.
-        }
-    } */
-
-    // TODO To check.
+    /*
+	* Output pbcore xml from public view
+	*/
     public function hookPublicThemeHeader()
     {
         $request = Zend_Controller_Front::getInstance()->getRequest();
