@@ -384,185 +384,201 @@
 
 		// Generation
 		array(
-            'label' => 'Generations',
-            'name'  => 'Generations',
-            /* 'description' => 'Generations.', */
+            'label' => 'Generation (original copy)',
+            'name'  => 'Generation (original copy)',
+            /* 'description' => 'Generation.', */
             'data_type'   => 'Tiny Text',
         ),
 
 		// Format
 		array(
-            'label' => 'Format',
-            'name'  => 'Format',
+            'label' => 'Format (original copy)',
+            'name'  => 'Format (original copy)',
             /* 'description' => 'Format.', */
             'data_type'   => 'Tiny Text',
         ),
 
 		// Extent
 		array(
-            'label' => 'Extent',
-            'name'  => 'Extent',
+            'label' => 'Extent (original copy)',
+            'name'  => 'Extent (original copy)',
             /* 'description' => 'Extent.', */
             'data_type'   => 'Tiny Text',
         ),
 
 		// Duration
 		array(
-            'label' => 'Duration',
-            'name'  => 'Duration',
+            'label' => 'Duration (original copy)',
+            'name'  => 'Duration (original copy)',
             /* 'description' => 'Duration.', */
             'data_type'   => 'Tiny Text',
         ),
 
 		// Running Speed
 		array(
-            'label' => 'Running Speed',
-            'name'  => 'Running Speed',
+            'label' => 'Running Speed (original copy)',
+            'name'  => 'Running Speed (original copy)',
             /* 'description' => 'Running Speed.', */
             'data_type'   => 'Tiny Text',
         ),
 
 		// Timecode Content Begins
 		array(
-            'label' => 'Timecode Content Begins',
-            'name'  => 'Timecode Content Begins',
+            'label' => 'Timecode Content Begins (original copy)',
+            'name'  => 'Timecode Content Begins (original copy)',
             /* 'description' => 'Timecode Content Begins.', */
             'data_type'   => 'Tiny Text',
         ),
 
 		// Track Standard
 		array(
-            'label' => 'Track Standard',
-            'name'  => 'Track Standard',
+            'label' => 'Track Standard (original copy)',
+            'name'  => 'Track Standard (original copy)',
             /* 'description' => 'Track Standard.', */
             'data_type'   => 'Tiny Text',
         ),
 
 		// Channel Configuration
 		array(
-            'label' => 'Channel Configuration',
-            'name'  => 'Channel Configuration',
+            'label' => 'Channel Configuration (original copy)',
+            'name'  => 'Channel Configuration (original copy)',
             /* 'description' => 'Channel Configuration.', */
             'data_type'   => 'Tiny Text',
         ),
 
 		// Stock Manufacturer
 		array(
-            'label' => 'Stock Manufacturer',
-            'name'  => 'Stock Manufacturer',
+            'label' => 'Stock Manufacturer (original copy)',
+            'name'  => 'Stock Manufacturer (original copy)',
             /* 'description' => 'Stock Manufacturer.', */
             'data_type'   => 'Tiny Text',
         ),
 
 		// Base Type
 		array(
-            'label' => 'Base Type',
-            'name'  => 'Base Type',
+            'label' => 'Base Type (original copy)',
+            'name'  => 'Base Type (original copy)',
             /* 'description' => 'Base Type.', */
             'data_type'   => 'Tiny Text',
         ),
 
 		// Transcript
 		array(
-            'label' => 'Transcript',
-            'name'  => 'Transcript',
+            'label' => 'Transcript (original copy)',
+            'name'  => 'Transcript (original copy)',
             /* 'description' => 'Transcript.', */
         ),
 		
 		// Moving Image Only Sources
 		// Silent or Sound
 		array(
-            'label' => 'Silent or Sound',
-            'name'  => 'Silent or Sound',
+            'label' => 'Silent or Sound (original copy)',
+            'name'  => 'Silent or Sound (original copy)',
             /* 'description' => 'Silent or Sound.', */
             'data_type'   => 'Tiny Text',
         ),
 
 		// Color and/or Black and White
 		array(
-            'label' => 'Color and/or Black and White',
-            'name'  => 'Color and/or Black and White',
+            'label' => 'Color and/or Black and White (original copy)',
+            'name'  => 'Color and/or Black and White (original copy)',
             /* 'description' => 'Color and/or Black and White.', */
             'data_type'   => 'Tiny Text',
         ),
 
 		// Aspect Ratio
 		array(
-            'label' => 'Aspect Ratio',
-            'name'  => 'Aspect Ratio',
+            'label' => 'Aspect Ratio (original copy)',
+            'name'  => 'Aspect Ratio (original copy)',
             /* 'description' => 'Aspect Ratio.', */
             'data_type'   => 'Tiny Text',
         ),
 
-		// Subtitles / Intertitles / Closed Captions
+		// Subtitles
 		array(
-            'label' => 'Subtitles / Intertitles / Closed Captions',
-            'name'  => 'Subtitles / Intertitles / Closed Captions',
-            /* 'description' => 'Subtitles / Intertitles / Closed Captions.', */
+            'label' => 'Subtitles (original copy)',
+            'name'  => 'Subtitles (original copy)',
+            /* 'description' => 'Subtitles.', */
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		// Intertitles
+		array(
+            'label' => 'Intertitles (original copy)',
+            'name'  => 'Intertitles (original copy)',
+            /* 'description' => 'Intertitles.', */
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		// Closed Captions
+		array(
+            'label' => 'Closed Captions (original copy)',
+            'name'  => 'Closed Captions (original copy)',
+            /* 'description' => 'Closed Captions.', */
             'data_type'   => 'Tiny Text',
         ),
 
 	//////// Technical Vendor Metadata //////////////
 		// // Digital File Identifier(s)
 		array(
-            'label' => 'Digital File Identifier(s)',
-            'name'  => 'Digital File Identifier(s)',
+            'label' => 'Digital File Identifier(s) (vendor copy)',
+            'name'  => 'Digital File Identifier(s) (vendor copy)',
             /* 'description' => 'Digital File Identifier(s).', */
             'data_type'   => 'Tiny Text',
         ),
 		
 		// // Creation Date
 		array(
-            'label' => 'Creation Date',
-            'name'  => 'Creation Date',
+            'label' => 'Creation Date (vendor copy)',
+            'name'  => 'Creation Date (vendor copy)',
             /* 'description' => 'Creation Date.', */
             'data_type'   => 'Tiny Text',
         ),
 		
 		// // Frame Size
 		array(
-            'label' => 'Frame Size',
-            'name'  => 'Frame Size',
+            'label' => 'Frame Size (vendor copy)',
+            'name'  => 'Frame Size (vendor copy)',
             /* 'description' => 'Frame Size.', */
             'data_type'   => 'Tiny Text',
         ),
 
 		// // File Extension
 		array(
-            'label' => 'File Extension',
-            'name'  => 'File Extension',
+            'label' => 'File Extension (vendor copy)',
+            'name'  => 'File Extension (vendor copy)',
             /* 'description' => 'File Extension.', */
             'data_type'   => 'Tiny Text',
         ),
 
 		// // Standard and File Wrapper
 		array(
-            'label' => 'Standard and File Wrapper',
-            'name'  => 'Standard and File Wrapper',
+            'label' => 'Standard and File Wrapper (vendor copy)',
+            'name'  => 'Standard and File Wrapper (vendor copy)',
             /* 'description' => 'Standard and File Wrapper.', */
             'data_type'   => 'Tiny Text',
         ),
 
 		// // File Location
 		array(
-            'label' => 'File Location',
-            'name'  => 'File Location',
+            'label' => 'File Location (vendor copy)',
+            'name'  => 'File Location (vendor copy)',
             /* 'description' => 'File Location.', */
             'data_type'   => 'Tiny Text',
         ),
 
 		// // Media Type
 		array(
-            'label' => 'Media Type',
-            'name'  => 'Media Type',
+            'label' => 'Media Type (vendor copy)',
+            'name'  => 'Media Type (vendor copy)',
             /* 'description' => 'Media Type.', */
             'data_type'   => 'Tiny Text',
         ),
 
 		// // Generation
 		array(
-            'label' => 'Generations-Vendor',
-            'name'  => 'Generations',
+            'label' => 'Generations (vendor copy)',
+            'name'  => 'Generations (vendor copy)',
             /* 'description' => 'Generation.', */
             'data_type'   => 'Tiny Text',
         ),
@@ -585,48 +601,48 @@
 
 		// // Duration
 		array(
-            'label' => 'Duration-Vendor',
-            'name'  => 'Vendor Duration',
+            'label' => 'Duration (vendor copy)',
+            'name'  => 'Duration (vendor copy)',
             /* 'description' => 'Duration.', */
             'data_type'   => 'Tiny Text',
         ),
 
 		// // Colors
 		array(
-            'label' => 'Colors-Vendor',
-            'name'  => 'Colors',
+            'label' => 'Colors (vendor copy)',
+            'name'  => 'Colors (vendor copy)',
             /* 'description' => 'Colors.', */
             'data_type'   => 'Tiny Text',
         ),
 
 		// // Tracks
 		array(
-            'label' => 'Tracks',
-            'name'  => 'Tracks',
+            'label' => 'Tracks (vendor copy)',
+            'name'  => 'Tracks (vendor copy)',
             /* 'description' => 'Tracks.', */
             'data_type'   => 'Tiny Text',
         ),
 
 		// // Channel Configuration
 		array(
-            'label' => 'ChannelConfiguration-Vendor',
-            'name'  => 'Vendor Channel Configuration',
+            'label' => 'Channel Configuration (vendor copy)',
+            'name'  => 'Channel Configuration (vendor copy)',
             /* 'description' => 'Channel Configuration.', */
             'data_type'   => 'Tiny Text',
         ),
 
 		// // Track Type
 		array(
-            'label' => 'Track Type',
-            'name'  => 'Track Type',
+            'label' => 'Track Type (vendor copy)',
+            'name'  => 'Track Type (vendor copy)',
             /* 'description' => 'Track Type.', */
             'data_type'   => 'Tiny Text',
         ),
 
 		// // Encoder 
 		array(
-            'label' => 'Encoder',
-            'name'  => 'Encoder',
+            'label' => 'Encoder (vendor copy)',
+            'name'  => 'Encoder (vendor copy)',
             /* 'description' => 'Encoder.', */
             'data_type'   => 'Tiny Text',
         ),
