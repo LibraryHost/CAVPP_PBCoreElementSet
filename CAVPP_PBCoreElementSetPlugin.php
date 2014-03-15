@@ -26,9 +26,9 @@ class CAVPP_PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
     protected $_hooks = array(
         'install',
         'uninstall',
-        'config_form',
+        /* 'config_form',
         'config',
-        'after_save_item',
+        'after_save_item', */
         'public_theme_header',
         // BeamMeUpToInternetArchive hook used to get list of metadata.
         'beamia_set_settings',
@@ -45,9 +45,9 @@ class CAVPP_PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
     /**
      * @var array This plugin's options.
      */
-    protected $_options = array(
+    /* protected $_options = array(
         'cavpp_pbcore_element_set_add_url_as_identifier' => false,
-    );
+    ); */
 
     /**
      * Install the plugin.
@@ -82,29 +82,29 @@ class CAVPP_PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
      *
      * @return void
      */
-    public function hookConfigForm()
+    /* public function hookConfigForm()
     {
         include('config_form.php');
-    }
+    } */
 
     /**
      * Saves plugin configuration.
      *
      * @return void
      */
-    public function hookConfig($args)
+    /* public function hookConfig($args)
     {
         $post = $args['post'];
 
         set_option('cavpp_pbcore_element_set_add_url_as_identifier', $post['CAVPP_PBCoreElementSetAddUrlAsIdentifier']);
-    }
+    } */
 
     /**
      * The recommended pbcore identifier is to use the omeka url with current
      * id, so we need to update the item once it is saved for the first time
      * (insert). An option is added to disable this feature.
      */
-    public function hookAfterSaveItem($args)
+    /* public function hookAfterSaveItem($args)
     {
         $post = $args['post'];
         $item = $args['record'];
@@ -142,7 +142,7 @@ class CAVPP_PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
             // Nothing, because the user should be able to remove or update the
             // default identifier manually.
         }
-    }
+    } */
 
     // TODO To check.
     public function hookPublicThemeHeader()
