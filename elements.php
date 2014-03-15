@@ -1,7 +1,7 @@
 <?php
     $elementSetMetadata = array(
         'name'        => 'CAVPP_PBCore',
-        /* 'description' => "CAVPP custom metadata element set, based on PBCore (a metadata standard for audiovisual media developed by the public broadcasting community. See http://www.pbcore.org/documentation/)",
+        'description' => "CAVPP custom metadata element set, based on PBCore (a metadata standard for audiovisual media developed by the public broadcasting community. See http://www.pbcore.org/documentation/)",
         'record_type' => 'Item',
     );
 
@@ -13,7 +13,7 @@
 		array(
             'label' => 'Institution',
             'name'  => 'Institution',
-            /* /* 'description' => 'Name of Institution.', */
+            /* 'description' => 'Name of Institution.', */
 			'data_type' => 'Tiny Text',
         ),
 		
@@ -21,7 +21,7 @@
 		array(
             'label' => 'Institution URL',
             'name'  => 'Institution URL',
-            /* /* 'description' => 'Institution\'s website.', */
+            /* 'description' => 'Institution\'s website.', */
 			'data_type' => 'Tiny Text',
         ),
 		
