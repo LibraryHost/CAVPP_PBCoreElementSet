@@ -26,6 +26,7 @@ class CAVPP_PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
     protected $_hooks = array(
         'install',
         'uninstall',
+		'after_save_item',
         'public_theme_header',
         // BeamMeUpToInternetArchive hook used to get list of metadata.
         'beamia_set_settings',
@@ -67,6 +68,14 @@ class CAVPP_PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
         $this->_uninstallOptions();
     }
 
+	/**
+	* Saves the metadata
+	*/
+	public function hookAfterSaveItem($args)
+    {
+        $post = $args['post'];
+        $item = $args['record'];
+    }
 
     /*
 	* Output pbcore xml from public view
@@ -81,7 +90,7 @@ class CAVPP_PBCoreElementSetPlugin extends Omeka_Plugin_AbstractPlugin
             echo '<link rel="alternate" type="application/rss+xml" href="' . record_url(get_current_record('item')) . '?output=cavpp_pbcore" id="cavpp_pbcore"/>' . PHP_EOL;
         }
     }
-
+	
     /**
      * BeamMeUpToInternetArchive hook used to get list of metadata.
      *
