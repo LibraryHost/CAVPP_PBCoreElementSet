@@ -728,10 +728,28 @@
         ),
 		
 		//Relationship/Transfer/Vendor/Creation Date
+		array(
+            'label' => 'Relationship/Transfer/Vendor/Creation Date',
+            'name'  => 'Relationship/Transfer/Vendor/Creation Date',
+            /* 'description' => 'Relationship/Transfer/Vendor/Creation Date.', */
+            'data_type'   => 'Tiny Text',
+        ),
 		
 		//Preservation File Identifier/MD5/MD5 Date
+		array(
+            'label' => 'Preservation File Identifier/MD5/MD5 Date',
+            'name'  => 'Preservation File Identifier/MD5/MD5 Date',
+            /* 'description' => 'Preservation File Identifier/MD5/MD5 Date.', */
+            'data_type'   => 'Tiny Text',
+        ),
 		
 		//Access File Identifier/MD5/MD5 Date
+		array(
+            'label' => 'Access File Identifier/MD5/MD5 Date',
+            'name'  => 'Access File Identifier/MD5/MD5 Date',
+            /* 'description' => 'Access File Identifier/MD5/MD5 Date.', */
+            'data_type'   => 'Tiny Text',
+        ),
 		
 		//Creating Application/Version
 		array(
@@ -759,17 +777,17 @@
 		
 		//Technical Evaluation Report
 		array(
-            'label' => 'Technical Evaluation Report (vendor copy)',
-            'name'  => 'Technical Evaluation Report (vendor copy)',
-            /* 'description' => 'Technical Evaluation Report (vendor copy).', */
+            'label' => 'Technical Evaluation Report',
+            'name'  => 'Technical Evaluation Report',
+            /* 'description' => 'Technical Evaluation Report.', */
             'data_type'   => 'Tiny Text',
         ),
 		
 		//Vendor Quality Control Notes
 		array(
-            'label' => 'Vendor Quality Control Notes (vendor copy)',
-            'name'  => 'Vendor Quality Control Notes (vendor copy)',
-            /* 'description' => 'Vendor Quality Control Notes (vendor copy).', */
+            'label' => 'Vendor Quality Control Notes',
+            'name'  => 'Vendor Quality Control Notes',
+            /* 'description' => 'Vendor Quality Control.', */
             'data_type'   => 'Tiny Text',
         ),
 		
