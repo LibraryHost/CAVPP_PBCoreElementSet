@@ -647,4 +647,131 @@
             'data_type'   => 'Tiny Text',
         ),
 
+		// // Sampling Rate (preservation copy)
+		array(
+            'label' => 'Sampling Rate (preservation copy)',
+            'name'  => 'Sampling Rate (preservation copy)',
+            /* 'description' => 'Sampling Rate (preservation copy).', */
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		// // Data Rate (preservation copy) 
+		array(
+            'label' => 'Data Rate (preservation copy)',
+            'name'  => 'Data Rate (preservation copy)',
+            /* 'description' => 'Data Rate (preservation copy).', */
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		// // Frame Rate (preservation copy) 
+		array(
+            'label' => 'Frame Rate (preservation copy)',
+            'name'  => 'Frame Rate (preservation copy)',
+            /* 'description' => 'Frame Rate (preservation copy).', */
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		// // Bit Depth  (preservation copy) 
+		array(
+            'label' => 'Bit Depth  (preservation copy)',
+            'name'  => 'Bit Depth  (preservation copy)',
+            /* 'description' => 'Bit Depth  (preservation copy).', */
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		// // Data Compression (preservation copy) 
+		array(
+            'label' => 'Data Compression (preservation copy)',
+            'name'  => 'Data Compression (preservation copy)',
+            /* 'description' => 'Data Compression (preservation copy).', */
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		// // Sampling Rate (access copy)
+		array(
+            'label' => 'Sampling Rate (access copy)',
+            'name'  => 'Sampling Rate (access copy)',
+            /* 'description' => 'Sampling Rate (access copy).', */
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		// // Data Rate (access copy) 
+		array(
+            'label' => 'Data Rate (access copy)',
+            'name'  => 'Data Rate (access copy)',
+            /* 'description' => 'Data Rate (access copy).', */
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		// // Frame Rate (access copy) 
+		array(
+            'label' => 'Frame Rate (access copy)',
+            'name'  => 'Frame Rate (access copy)',
+            /* 'description' => 'Frame Rate (access copy).', */
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		// // Bit Depth  (access copy) 
+		array(
+            'label' => 'Bit Depth  (access copy)',
+            'name'  => 'Bit Depth  (access copy)',
+            /* 'description' => 'Bit Depth  (access copy).', */
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		// // Data Compression (access copy) 
+		array(
+            'label' => 'Data Compression (access copy)',
+            'name'  => 'Data Compression (access copy)',
+            /* 'description' => 'Data Compression (access copy).', */
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		//Relationship/Transfer/Vendor/Creation Date
+		
+		//Preservation File Identifier/MD5/MD5 Date
+		
+		//Access File Identifier/MD5/MD5 Date
+		
+		//Creating Application/Version
+		array(
+            'label' => 'Creating Application/Version (vendor copy)',
+            'name'  => 'Creating Application/Version (vendor copy)',
+            /* 'description' => 'Creating Application/Version (vendor copy).', */
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		//Source Deck Manufacturer/Model
+		array(
+            'label' => 'Source Deck Manufacturer/Model (vendor copy)',
+            'name'  => 'Source Deck Manufacturer/Model (vendor copy)',
+            /* 'description' => 'Source Deck Manufacturer/Model (vendor copy).', */
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		//Digitizer Manufacturer/Model
+		array(
+            'label' => 'Digitizer Manufacturer/Model (vendor copy)',
+            'name'  => 'Digitizer Manufacturer/Model (vendor copy)',
+            /* 'description' => 'Digitizer Manufacturer/Model (vendor copy).', */
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		//Technical Evaluation Report
+		array(
+            'label' => 'Technical Evaluation Report (vendor copy)',
+            'name'  => 'Technical Evaluation Report (vendor copy)',
+            /* 'description' => 'Technical Evaluation Report (vendor copy).', */
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		//Vendor Quality Control Notes
+		array(
+            'label' => 'Vendor Quality Control Notes (vendor copy)',
+            'name'  => 'Vendor Quality Control Notes (vendor copy)',
+            /* 'description' => 'Vendor Quality Control Notes (vendor copy).', */
+            'data_type'   => 'Tiny Text',
+        ),
+		
+		
 	);
